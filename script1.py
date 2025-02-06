@@ -37,17 +37,17 @@ from telegram.ext import (
 # ---------------
 
 # For subscriptions and all_users:
-users_client = MongoClient("mongodb+srv://kunalrepowala2:LCLIBQxW8IOdZpeF@cluster0.awvns.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+users_client = MongoClient("mongodb+srv://kunalrepowala3:tpSCu2VMuckV7yaU@cluster0.d8qk7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db_users = users_client["Cluster0"]
 col_users = db_users["users"]
 
 # For the other persistent data:
-data_client = MongoClient("mongodb+srv://wenoobhost1:WBOEXfFslsyXY1nN@cluster0.7ioby.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+data_client = MongoClient("mongodb+srv://kunalrepowala4:8KoGJMvheGQRwSQJ@cluster0.6tkz9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db_data = data_client["Cluster0"]
 col_data = db_data["data"]
 
 # For misc persistent data (pending_deletes)
-misc_client = MongoClient("mongodb+srv://wenoobhosttest1:lovedogswetest81@cluster0.4lf5x.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+misc_client = MongoClient("mongodb+srv://kunalrepowala5:sve52IWxwHEeXlZg@cluster0.16epo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db_misc = misc_client["Cluster0"]
 col_misc = db_misc["misc"]
 
@@ -69,19 +69,19 @@ pending_deletes = []  # List of pending deletions (each: {"chat_id": int, "messa
 # Settings and Constants
 # ----------------------
 #BOT_TOKEN = "7660007316:AAHis4NuPllVzH-7zsYhXGfgokiBxm_Tml0"
-DB_CHANNEL = -1002479661811
+DB_CHANNEL = -1002268116591
 ADMIN_ID = 6773787379
-SUBS_CHANNEL = -1002278982228         # Full Premium subscription channel
-LIMITED_SUBS_CHANNEL = -1002486162221   # Limited Premium subscription channel (3 links/day)
-UPGRADE_CHANNEL = -1002429251851        # Channel for upgrading limited to Unlimited
-FORWARD_CHANNEL = -1002253885579         # Channel to forward any user messages
-BROADCAST_CHANNEL = -1002449407667
+SUBS_CHANNEL = -1002450249243         # Full Premium subscription channel
+LIMITED_SUBS_CHANNEL = -1002317340654   # Limited Premium subscription channel (3 links/day)
+UPGRADE_CHANNEL = -1002337809688        # Channel for upgrading limited to Unlimited
+FORWARD_CHANNEL = -1002461684229         # Channel to forward any user messages
+BROADCAST_CHANNEL = -1002414512904
 
 # Required channels (order matters for numbering)
-REQUIRED_CHANNELS = [-1002434409634, -1002315588145]
+REQUIRED_CHANNELS = [-1002351606649, -1002389931784]
 INVITE_LINKS = {
-    -1002434409634: "https://t.me/+h7ICg0eD7gQxZmE0",
-    -1002315588145: "https://t.me/+tCyah29hMTtjNTBk",
+    -1002351606649: "https://t.me/HotError",
+    -1002389931784: "https://t.me/HotErrorLinks",
 }
 
 auto_delete_timer = 3600  # seconds
@@ -295,8 +295,8 @@ async def send_stored_message(user_id: int, msg_data: dict, context: ContextType
     for match in pattern.finditer(original_content):
          suffix = match.group(1)[len(old_base):]
          new_url = new_base + suffix
-         mini_app_button = InlineKeyboardButton("Open Mini App", web_app=WebAppInfo(url=new_url))
-         url_button = InlineKeyboardButton("Open Link", url=new_url)
+         mini_app_button = InlineKeyboardButton("Mini App Play", web_app=WebAppInfo(url=new_url))
+         url_button = InlineKeyboardButton("Browser Play", url=new_url)
          inline_buttons.append([mini_app_button])
          inline_buttons.append([url_button])
     inline_markup = InlineKeyboardMarkup(inline_buttons) if inline_buttons else None
@@ -411,7 +411,7 @@ async def start_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 "/plan - View your subscription plan\n"
                 "/user {userid} - View user details")
     else:
-        text = "💋 Get more categories 👇"
+        text = "💋 Get more categories👇"
         keyboard = [[InlineKeyboardButton("Join - HotError", url="https://t.me/HotError")]]
         await update.message.reply_text(text, reply_markup=InlineKeyboardMarkup(keyboard))
         return
@@ -975,7 +975,7 @@ async def subscription_listener(update: Update, context: ContextTypes.DEFAULT_TY
                     f"📥 <b>Purchased on:</b> {purchase_date.strftime('%Y-%m-%d %H:%M')}\n"
                     f"⏳ <b>Expires on:</b> {expiry_date.strftime('%Y-%m-%d %H:%M')}\n\n"
                     "You can access up to 3 unique links per day.\n"
-                    "Use /plan to view your subscription plan and available commands.\n"
+                    "Use /plan to view your subscription plan, and more available commands - /help.\n"
                     "🙏 Thank you for choosing our service!"
                 )
             else:
@@ -984,7 +984,7 @@ async def subscription_listener(update: Update, context: ContextTypes.DEFAULT_TY
                     "Thank you for upgrading! Your Premium subscription is now active.\n\n"
                     f"📥 <b>Purchased on:</b> {purchase_date.strftime('%Y-%m-%d %H:%M')}\n"
                     f"⏳ <b>Expires on:</b> {expiry_date.strftime('%Y-%m-%d %H:%M')}\n\n"
-                    "Use /plan to view your subscription plan and available commands.\n"
+                    "Use /plan to view your subscription plan, and more available commands - /help.\n"
                     "🙏 Thank you for choosing our service!"
                 )
             await context.bot.send_message(chat_id=int(user_id), text=subscription_text, parse_mode=ParseMode.HTML)
