@@ -1,0 +1,6 @@
+python-telegram-bot[job-queue]==20 # For interacting with the Telegram Bot API (adjust to your desired version)
+nest-asyncio # For enabling nested asyncio event loops (especially useful in Jupyter/Colab environments)
+aiohttp # HTTP client/server for asyncio (if your bot is hosted and interacts with a web server)
+asyncio  # Required for asynchronous programming (Python 3.7+ should already include it)
+motor
+pymongo
