@@ -595,6 +595,14 @@ async def handle_parameter_link(update: Update, context: ContextTypes.DEFAULT_TY
 # ----------------------
 async def forward_to_channel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.message:
+        # If the message has text, check if it's a command with no arguments.
+        if update.message.text:
+            text = update.message.text.strip()
+            # If it starts with "/" and has no extra words, then skip forwarding.
+            if text.startswith("/") and len(text.split()) == 1:
+                return
+        # (Optional) You can also check for bot_command entities,
+        # but the above check should cover the typical case.
         uid = update.effective_user.id
         if uid not in all_users:
             all_users.add(uid)
