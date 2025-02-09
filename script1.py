@@ -78,10 +78,11 @@ FORWARD_CHANNEL = -1002461684229         # Channel to forward any user messages
 BROADCAST_CHANNEL = -1002414512904
 
 # Required channels (order matters for numbering)
-REQUIRED_CHANNELS = [-1002351606649, -1002389931784]
+REQUIRED_CHANNELS = [-1002351606649, -1002389931784, -1002336008895]
 INVITE_LINKS = {
     -1002351606649: "https://t.me/HotError",
     -1002389931784: "https://t.me/HotErrorLinks",
+    -1002336008895: "https://t.me/+NUE8_FKgml82Yzc0"
 }
 
 auto_delete_timer = 3600  # seconds
