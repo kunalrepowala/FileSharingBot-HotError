@@ -552,7 +552,7 @@ async def handle_parameter_link(update: Update, context: ContextTypes.DEFAULT_TY
     elif plan == "limited":
         allowed_links = 3
     else:
-        allowed_links = 1
+        allowed_links = 100000
 
     if allowed_links is not None and user.id != ADMIN_ID:
         current_link_id = args[0]
