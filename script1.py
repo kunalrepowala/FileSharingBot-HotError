@@ -78,15 +78,16 @@ FORWARD_CHANNEL = -1002461684229         # Channel to forward any user messages
 BROADCAST_CHANNEL = -1002414512904
 
 # Required channels (order matters for numbering)
-REQUIRED_CHANNELS = [-1002351606649, -1002389931784, -1002336008895]
+REQUIRED_CHANNELS = [-1002351606649, -1002389931784, -1002218667619, -1002356967924]
 INVITE_LINKS = {
     -1002351606649: "https://t.me/HotError",
     -1002389931784: "https://t.me/HotErrorLinks",
-    -1002336008895: "https://t.me/+NUE8_FKgml82Yzc0"
+    -1002218667619: "https://t.me/ModiFilm",
+    -1002356967924: "https://t.me/LinkProviderIN"
 }
 
-auto_delete_timer = 3600  # seconds
-subscription_function_enabled = True  # enforce daily limit for non‑premium users
+auto_delete_timer = 36000  # seconds
+subscription_function_enabled = False  # enforce daily limit for non‑premium users
 subscription_off_start = None
 
 FIRST_POST, LAST_POST = range(2)
