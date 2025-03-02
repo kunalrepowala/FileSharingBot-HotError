@@ -87,7 +87,7 @@ INVITE_LINKS = {
 }
 
 auto_delete_timer = 36000  # seconds
-subscription_function_enabled = False  # enforce daily limit for non‑premium users
+subscription_function_enabled = True  # enforce daily limit for non‑premium users
 subscription_off_start = None
 
 FIRST_POST, LAST_POST = range(2)
@@ -510,7 +510,7 @@ async def process_last_post(update: Update, context: ContextTypes.DEFAULT_TYPE):
     param_links[link_id]["messages"] = messages_list
 
     today = get_today_str()
-    daily_param_links_counter[today] = daily_param_links_counter.get(today, 0) + 1
+    daily_param_links_counter[today] = daily_param_links_counter.get(today, 0) + 100000
 
     save_data()
 
